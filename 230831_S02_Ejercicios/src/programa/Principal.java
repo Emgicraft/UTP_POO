@@ -4,7 +4,7 @@ import modelos.Pulgada;
 
 /**
  *
- * @author Moisés
+ * @author Magh
  */
 public class Principal {
     /**

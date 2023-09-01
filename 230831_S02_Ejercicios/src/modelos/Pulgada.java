@@ -4,7 +4,7 @@ package modelos;
  * Clase Pulgada, posee como propiedad el valor de la medida y métodos 
  * de conversión a otras unidades, tanto normales como estáticos.
  *
- * @author Moisés
+ * @author Magh
  */
 public class Pulgada {
     private double valor;
