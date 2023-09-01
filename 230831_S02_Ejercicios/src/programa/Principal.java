@@ -15,7 +15,7 @@ public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         // =====[ Ejercicio 01 ]=====
-        System.out.println("\n=====[ Ejercicio 01 ]=====");
+        System.out.println("=====[ Ejercicio 01 ]=====");
         System.out.print("Ingrese un valor en pulgadas: ");
         double pulgadas = teclado.nextDouble();
         // Instanciando
@@ -43,13 +43,11 @@ public class Principal {
         // Instanciando
         System.out.println("-- Con Instancia --");
         Comparador compara = new Comparador(n1, n2);
-        System.out.println("Entre " + n1 + " y " + n2 + ":");
-        System.out.println(compara.getMayor() + " es el mayor.");
-        System.out.println(compara.getMenor() + " es el menor.");
+        System.out.println("El doble de " + compara.getMayor() + " es " + compara.getMayor()*2);
+        System.out.println("El cuadrado de " + compara.getMenor() + " es " + compara.getMenor()*compara.getMenor());
         // Sin instanciar
         System.out.println("-- Sin Instancia --");
-        System.out.println("Entre " + n1 + " y " + n2 + ":");
-        System.out.println(Comparador.mayor(n1, n2) + " es el mayor.");
-        System.out.println(Comparador.menor(n1, n2) + " es el menor.");
+        System.out.println("El doble de " + Comparador.mayor(n1, n2) + " es " + Comparador.mayor(n1, n2)*2);
+        System.out.println("El cuadrado de " + Comparador.menor(n1, n2) + " es " + Comparador.menor(n1, n2)*Comparador.menor(n1, n2));
     }
 }
