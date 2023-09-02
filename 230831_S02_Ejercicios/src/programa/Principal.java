@@ -1,9 +1,10 @@
 package programa;
 
 import java.util.Scanner;
-import modelos.Comparador;
 import modelos.Pulgada;
+import modelos.Comparador;
 import modelos.VentaDepartamento;
+import modelos.VentaCamisas;
 
 /**
  *
@@ -75,5 +76,35 @@ public class Principal {
         }
         VentaDepartamento vDep = new VentaDepartamento(costoBaseDepa, numHabPrin, numHabServ, numPiso, servAdic);
         System.out.println("\nEl precio del departamento sería de $" + String.format("%,.2f", vDep.total()));
+        
+        // =====[ Ejercicio 04 ]=====
+        System.out.println("\n=====[ Ejercicio 04 ]=====");
+        VentaCamisas vCamisas = new VentaCamisas(8, 60); // Ejemplo de talla 8, 60 camisas
+
+        double total = vCamisas.calcularTotal();
+        int camisasRegaladas = vCamisas.obtenerCamisasRegaladas();
+
+        System.out.println("Cantidad de camisas: " + vCamisas.getCantidad());
+        System.out.println("Precio total: " + total + " soles");
+        System.out.println("Camisas regaladas: " + camisasRegaladas);
+
+        int cuotas = 3; // Cambia a 6 para 6 cuotas
+        double montoCuota = vCamisas.calcularMontoCuota(cuotas);
+        System.out.println("Monto por cuota (" + cuotas + " cuotas): " + montoCuota + " soles");
+        
+        /*
+        System.out.print("¿Cuántas tallas diferentes comprará? ");
+        int numTallas = teclado.nextInt();
+        int tallaCamisa, numCamisas;
+        VentaCamisas vCamisas = new VentaCamisas();
+        for (int i = 1; i <= numTallas; i++) {
+            System.out.println("=====[ " + i + " ]=====");
+            System.out.print("Talla de la camisa: ");
+            tallaCamisa = teclado.nextInt();
+            System.out.print("Número de camisas: ");
+            numCamisas = teclado.nextInt();
+            //vCamisas.agregar(tallaCamisa, numCamisas);
+        }
+        //vCamisas.cuotas("6");*/
     }
 }
