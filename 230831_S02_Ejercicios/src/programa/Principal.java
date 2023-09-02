@@ -3,6 +3,7 @@ package programa;
 import java.util.Scanner;
 import modelos.Comparador;
 import modelos.Pulgada;
+import modelos.VentaDepartamento;
 
 /**
  *
@@ -22,17 +23,17 @@ public class Principal {
         System.out.println("-- Con Instancia --");
         Pulgada plg = new Pulgada(pulgadas);
         System.out.println(pulgadas + " pulgadas equivalen a:");
-        System.out.println(String.format("%.8f", plg.convertir_a_pies()) + " pies");
-        System.out.println(String.format("%.8f", plg.convertir_a_yardas()) + " yardas");
-        System.out.println(String.format("%.8f", plg.convertir_a_metros()) + " metros");
-        System.out.println(String.format("%.8f", plg.convertir_a_centimetros()) + " centimetros");
+        System.out.println(String.format("%.4f", plg.convertir_a_pies()) + " pies");
+        System.out.println(String.format("%.4f", plg.convertir_a_yardas()) + " yardas");
+        System.out.println(String.format("%.4f", plg.convertir_a_metros()) + " metros");
+        System.out.println(String.format("%.4f", plg.convertir_a_centimetros()) + " centimetros");
         // Sin instanciar
         System.out.println("-- Sin Instancia --");
         System.out.println(pulgadas + " pulgadas equivalen a:");
-        System.out.println(String.format("%.8f", Pulgada.convertir_a_pies(pulgadas)) + " pies");
-        System.out.println(String.format("%.8f", Pulgada.convertir_a_yardas(pulgadas)) + " yardas");
-        System.out.println(String.format("%.8f", Pulgada.convertir_a_metros(pulgadas)) + " metros");
-        System.out.println(String.format("%.8f", Pulgada.convertir_a_centimetros(pulgadas)) + " centimetros");
+        System.out.println(String.format("%.4f", Pulgada.convertir_a_pies(pulgadas)) + " pies");
+        System.out.println(String.format("%.4f", Pulgada.convertir_a_yardas(pulgadas)) + " yardas");
+        System.out.println(String.format("%.4f", Pulgada.convertir_a_metros(pulgadas)) + " metros");
+        System.out.println(String.format("%.4f", Pulgada.convertir_a_centimetros(pulgadas)) + " centimetros");
         
         // =====[ Ejercicio 02 ]=====
         System.out.println("\n=====[ Ejercicio 02 ]=====");
@@ -49,5 +50,30 @@ public class Principal {
         System.out.println("-- Sin Instancia --");
         System.out.println("El doble de " + Comparador.mayor(n1, n2) + " es " + Comparador.mayor(n1, n2)*2);
         System.out.println("El cuadrado de " + Comparador.menor(n1, n2) + " es " + Comparador.menor(n1, n2)*Comparador.menor(n1, n2));
+        
+        // =====[ Ejercicio 03 ]=====
+        System.out.println("\n=====[ Ejercicio 03 ]=====");
+        System.out.print("Ingrese el costo base del departamento: $");
+        double costoBaseDepa = teclado.nextDouble();
+        System.out.print("Ingrese el número de habitaciones Principales:(mínimo: 2) ");
+        int numHabPrin = teclado.nextInt();
+        System.out.print("Ingrese el número de habitaciones de Servicios: ");
+        int numHabServ = teclado.nextInt();
+        System.out.print("Ingrese el número de piso:(Del 1 al 5 piso.) ");
+        int numPiso = teclado.nextInt();
+        System.out.print("¿Desea servicios adicionales como: telefonia, terma o cochera?(Si/No) ");
+        teclado.nextLine();
+        String res = teclado.nextLine().toLowerCase();
+        boolean[] servAdic = new boolean[3];
+        if (res.equals("si")) {
+            System.out.print("\tTelefonia: (Si/No) ");
+            servAdic[0] = teclado.nextLine().toLowerCase().equals("si");
+            System.out.print("\tTerma: (Si/No) ");
+            servAdic[1] = teclado.nextLine().toLowerCase().equals("si");
+            System.out.print("\tCochera: (Si/No) ");
+            servAdic[2] = teclado.nextLine().toLowerCase().equals("si");
+        }
+        VentaDepartamento vDep = new VentaDepartamento(costoBaseDepa, numHabPrin, numHabServ, numPiso, servAdic);
+        System.out.println("\nEl precio del departamento sería de $" + String.format("%,.2f", vDep.total()));
     }
 }
